@@ -1,0 +1,17 @@
+{
+  "name": "token-boy",
+  "version": "0.0.0",
+  "description": "Serves a token of given bit length",
+  "main": "token-boy.js",
+  "scripts": {
+    "start": "TOKEN_BOY_PORT=8000 node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "token",
+    "api-token"
+  ],
+  "author": "Mudit Ameta",
+  "license": "MIT",
+  "dependencies": {}
+}
