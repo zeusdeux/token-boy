@@ -13,5 +13,14 @@
   ],
   "author": "Mudit Ameta",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeusdeux/token-boy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zeusdeux/token-boy/issues"
+  },
+  "homepage": "https://github.com/zeusdeux/token-boy"
 }
