@@ -44,7 +44,10 @@ module.exports = function(req, res) {
         crypto.randomBytes(parseInt(req.query.bits, 10), function(err, buf) {
           try {
             if (err) throw err;
-            else token = crypto.createHmac('SHA1', buf.toString('base64')).update((new Date()).toString()).digest('base64');
+            else {
+              if (req.query.digest === 'true' || req.query.digest === '1') token = crypto.createHmac('SHA1', buf.toString('base64')).update((new Date()).toString()).digest('base64');
+              else token = buf.toString('base64');
+            }
             res.writeHead(200, {
               'Content-Length': token.length,
               'Content-Type': 'text/plain'
