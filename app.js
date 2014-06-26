@@ -1,7 +1,8 @@
 var http = require('http');
 var url = require('url');
+var debug = require('debug')('app');
 
-var tokenBoy = require('./token-boy');
+var tokenBoy = require('./token-boy')('hex');
 var errBoy = require('./error-boy');
 
 function parseURL(req) {
@@ -14,14 +15,19 @@ function parseURL(req) {
 
 function listener(req, res) {
   var token;
+  debug('New request -------------->');
   try {
     parseURL(req);
+    debug('Method: ',req.method);
     if (req.method === 'GET') {
-      if (req.pathname === '/' && typeof parseInt(req.query.bits, 10) === 'number') {
-        token = tokenBoy(req.query.bits, req.query.digest);
+      debug('Pathname: ',req.pathname);
+      debug('bits raw: ',req.query.bits);
+      debug('bits parsed: ', parseInt(req.query.bits, 10));
+      if (req.pathname === '/' && !isNaN(parseInt(req.query.bits, 10))) {
+        token = JSON.stringify(tokenBoy(req.query.bits, req.query.enc, req.query.digest));
         res.writeHead(200, {
           'Content-Length': token.length,
-          'Content-Type': 'text/plain'
+          'Content-Type': 'application/json'
         });
         res.end(token);
       }

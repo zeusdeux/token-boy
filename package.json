@@ -4,8 +4,8 @@
   "description": "Serves a token of given bit length",
   "main": "token-boy.js",
   "scripts": {
-    "start": "TOKEN_BOY_PORT=8000 node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=app,token-boy TOKEN_BOY_PORT=8000 nodemon app.js",
+    "test": "mocha --ui bdd --check-leaks --colors"
   },
   "keywords": [
     "token",
@@ -14,7 +14,12 @@
   "author": "Mudit Ameta",
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "debug": "^1.0.2",
+    "mocha": "^1.20.1",
+    "nodemon": "^1.2.0",
+    "should": "^4.0.4"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/zeusdeux/token-boy.git"
