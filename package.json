@@ -4,8 +4,7 @@
   "description": "Serves a token of given bit length",
   "main": "token-boy.js",
   "scripts": {
-    "start": "DEBUG=app,token-boy TOKEN_BOY_PORT=8000 nodemon app.js",
-    "test": "mocha --ui bdd --check-leaks --colors"
+
   },
   "keywords": [
     "token",

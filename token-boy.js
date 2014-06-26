@@ -18,7 +18,7 @@ module.exports = function(defaultEncoding) {
     'hex': true
   };
 
-  //if no defaultEncoding is given then it fallsback to base64
+  //if no defaultEncoding is given then it falls back to base64
   defaultEncoding = defaultEncoding || 'base64';
 
   if (!validDigests[defaultEncoding]) throw new Error('token-boy: Invalid defaultEncoding. Valid values: hex, binary, base64');
