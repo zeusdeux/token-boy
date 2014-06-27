@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zeusdeux/token-boy.svg?branch=master)](https://travis-ci.org/zeusdeux/token-boy)   
+
 token-boy
 =========
 
