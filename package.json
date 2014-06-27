@@ -1,8 +1,8 @@
 {
   "name": "token-boy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Serves a token of given bit length with given encoding, digested by default.",
-  "main": "token-boy.js",
+  "main": "index.js",
   "scripts": {},
   "keywords": [
     "token",

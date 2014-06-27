@@ -30,7 +30,7 @@ module.exports = function(defaultEncoding) {
     //smart defaults
     var _bits = parseInt(bits, 10) || 128;
     var _digest = true;
-    //defaultEncoding is base64 or whatever you passed to the outer fn
+    //defaultEncoding is base64 or whatever you passed while requiring
 
     if (digest === '0' || digest === 'false') _digest = false;
 

@@ -1,7 +1,7 @@
 token-boy
 =========
 
-Serves 'n' bit tokens with a user specified encoding, either digested or not.   
+Serves a token of given bit length with given encoding, digested by default.   
 
 Collision detection logic is left out as it should be specific to your application.
 
