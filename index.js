@@ -1,5 +1,4 @@
 var crypto = require('crypto');
-var debug = require('debug')('token-boy');
 
 module.exports = function(defaultEncoding) {
   //as per node 0.10.29 docs
@@ -33,18 +32,14 @@ module.exports = function(defaultEncoding) {
     var _digest = true;
     //defaultEncoding is base64 or whatever you passed to the outer fn
 
-    debug('default encoding: %s', defaultEncoding);
-
     if (digest === '0' || digest === 'false') _digest = false;
 
-    debug('bits: %s', _bits);
     res.bits = _bits;
 
     try {
       buf = crypto.randomBytes(parseInt(_bits, 10));
       if (_digest) {
         encoding = !! validDigests[encoding] ? encoding : defaultEncoding;
-        debug('digest encoding: %s', encoding);
         res.encoding = encoding;
         res.digested = true;
         token = crypto.createHmac('SHA1', buf).update(new Date().toString()).digest(encoding);
@@ -59,9 +54,7 @@ module.exports = function(defaultEncoding) {
     catch (e) {
       throw e;
     }
-    debug('encoding: %s', encoding);
     res.token = token;
-    debug('result: %o', res);
     return res;
   };
 };
