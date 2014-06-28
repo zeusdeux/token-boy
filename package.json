@@ -1,6 +1,6 @@
 {
   "name": "token-boy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serves a token of given bit length with given encoding, digested by default.",
   "main": "index.js",
   "scripts": {},
