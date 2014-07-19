@@ -9,8 +9,34 @@ Collision detection logic is left out as it should be specific to your applicati
 
 ##Install
 
+### For `node`
+
 ```javascript
-npm install token-boy
+npm install token-boy --save
+```
+
+### For browsers
+
+```
+bower install token-boy
+```
+
+or
+
+```
+git clone git@github.com:zeusdeux/token-boy.git
+```
+
+If you plan to use it with [browserify](http://browserify.org/), then just `require` `index.js`.   
+If you plan to use it directly in the browser, then include `browser/token-boy.min.js`. This will export
+a global `require` function.   
+You can then do:
+
+```html
+<script>
+  var tokenBoy = require('token-boy')();
+  var token = tokenBoy().token; //returns a 128 bit, base64 encoded, digested token
+</script>
 ```
 
 ##Usage
@@ -18,17 +44,17 @@ npm install token-boy
 ###Simple usage
 ```javascript
 var tokenBoy = require('token-boy')()
-var token = tokenBoy().token; //returns a 128 bit, base64 encoded, digested token
+var token = tokenBoy().token //returns a 128 bit, base64 encoded, digested token
 ```
 
 ###Advanced usage
 ```javascript
 var tokenBoy = require('token-boy')('hex') //specifying default encoding to be hex
-var token;
+var token
 
 token = tokenBoy().token //returns a 128 bit, hex encoded, digested token
 token = tokenBoy(256,'base64').token //returns a 256 bit, base64 encoded, digested token
-token = tokenBoy(128,'base64', false).token //returns a 256 bit, base64 encoded, non-digested token
+token = tokenBoy(128,'base64', false).token //returns a 128 bit, base64 encoded, non-digested token
 token = tokenBoy(512, 'ascii', false).token //returns a 512 bit, ascii encoded, non-digested token
 
 //note:
@@ -60,5 +86,7 @@ the need for it right now.
 
 ##Changelog
 
+- 0.0.4
+  - bugfixes and documentation fixes
 - 0.0.3
   - bugfixes
