@@ -88,5 +88,6 @@ the need for it right now.
 
 - 0.0.4
   - bugfixes and documentation fixes
-- 0.0.3
+  - fixed the broken `0.0.3` version
+- 0.0.3 (do not use this version)
   - bugfixes
