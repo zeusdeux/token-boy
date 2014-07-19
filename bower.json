@@ -1,0 +1,29 @@
+{
+  "name": "token-boy",
+  "main": "index.js",
+  "version": "0.0.4",
+  "homepage": "https://github.com/zeusdeux/token-boy",
+  "authors": [
+    "Mudit Ameta <zeusdeux@gmail.com>"
+  ],
+  "description": "Serves a token of given bit length with given encoding, digested by default.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "token",
+    "api-token",
+    "digested",
+    "crypto",
+    "api",
+    "browserify"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
