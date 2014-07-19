@@ -1,4 +1,3 @@
-require('should');
 var tokenBoy = require('../');
 
 describe('token-boy', function() {
@@ -25,11 +24,21 @@ describe('token-boy', function() {
     });
   });
   describe('when bits, encoding and digest are set', function() {
-    it('should return a digested value with the given encoding', function() {
-      var res = tokenBoy()(256, 'hex', true);
-      res.bits.should.be.exactly(256, 'no of bits have skewed from requested bits');
-      res.encoding.should.be.exactly('hex', 'default encoding has skewed from request value');
-      res.token.length.should.be.exactly(40);
+    describe('when digest is true', function() {
+      it('should return a digested value with the given encoding', function() {
+        var res = tokenBoy()(256, 'hex', true);
+        res.bits.should.be.exactly(256, 'no of bits have skewed from requested bits');
+        res.encoding.should.be.exactly('hex', 'default encoding has skewed from request value');
+        res.token.length.should.be.exactly(40);
+      });
+    });
+    describe('when digest is false', function() {
+      it('should return a non digested value with the given encoding', function() {
+        var res = tokenBoy()(256, 'utf8', false);
+        res.bits.should.be.exactly(256, 'no of bits have skewed from requested bits');
+        res.encoding.should.be.exactly('utf8', 'default encoding has skewed from request value');
+        res.digested.should.be.false;
+      });
     });
   });
   describe('when no bits are provided but other params are', function() {
@@ -56,12 +65,12 @@ describe('token-boy', function() {
   describe('when a default encoding other than hex, base64 or binary is provided', function() {
     it('should throw', function() {
       tokenBoy.bind(null, 'ascii').should.
-      throw ();
+      throw();
     });
   });
-  describe('when invalid encoding is given',function(){
-    it('should use the default encoding',function(){
-      var res = tokenBoy('hex')(256,'hajgfjhsgf');
+  describe('when invalid encoding is given', function() {
+    it('should use the default encoding', function() {
+      var res = tokenBoy('hex')(256, 'hajgfjhsgf');
       res.bits.should.be.exactly(256, 'no of bits have skewed from requested bits');
       res.encoding.should.be.exactly('hex', 'default encoding is not base64');
       res.digested.should.be.exactly(true);

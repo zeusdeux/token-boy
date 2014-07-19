@@ -27,25 +27,25 @@ module.exports = function(defaultEncoding) {
     var token;
     var buf;
 
-    //smart defaults
+    //smart-ish defaults
     var _bits = parseInt(bits, 10) || 128;
     var _digest = true;
-    //defaultEncoding is base64 or whatever you passed while requiring
 
-    if (digest === '0' || digest === 'false') _digest = false;
+    //defaultEncoding is base64 or whatever you passed while requiring
+    if (typeof digest !== 'undefined' && digest !== null && (digest.toString() === '0' || digest.toString() === 'false')) _digest = false;
 
     res.bits = _bits;
 
     try {
       buf = crypto.randomBytes(parseInt(_bits, 10));
       if (_digest) {
-        encoding = !! validDigests[encoding] ? encoding : defaultEncoding;
+        encoding = !!validDigests[encoding] ? encoding : defaultEncoding;
         res.encoding = encoding;
         res.digested = true;
-        token = crypto.createHmac('SHA1', buf).update(new Date().toString()).digest(encoding);
+        token = crypto.createHmac('sha1', buf).update(new Date().toString()).digest(encoding);
       }
       else {
-        encoding = !! validEncodings[encoding] ? encoding : defaultEncoding;
+        encoding = !!validEncodings[encoding] ? encoding : defaultEncoding;
         res.encoding = encoding;
         res.digested = false;
         token = buf.toString(encoding);

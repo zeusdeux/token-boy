@@ -28,7 +28,7 @@ var token;
 
 token = tokenBoy().token //returns a 128 bit, hex encoded, digested token
 token = tokenBoy(256,'base64').token //returns a 256 bit, base64 encoded, digested token
-token = tokenBoy(128,'base64',false).token //returns a 256 bit, base64 encoded, non-digested token
+token = tokenBoy(128,'base64', false).token //returns a 256 bit, base64 encoded, non-digested token
 token = tokenBoy(512, 'ascii', false).token //returns a 512 bit, ascii encoded, non-digested token
 
 //note:
@@ -57,3 +57,8 @@ Default encodings supported are:
 The default encodings supported are only a subset of encodings as the `digest()` method documentation asks us to only 
 use these. If it is needed, I shall add support for all encodings to be used as default encodings but I don't see 
 the need for it right now.
+
+##Changelog
+
+- 0.0.3
+  - bugfixes
